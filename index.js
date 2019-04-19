@@ -5,9 +5,14 @@ Assignment 1 - Creating an initial web server and routes
 
 const http = require("http"); 
 const fs = require("fs");
+const books = require('./lib/books_model.js'); //import books module to use its data and methods
+const qs = require('querystring'); //import querystring module to work with url
 
 http.createServer((req,res) => {
-  const path = req.url.toLowerCase();
+  let url = req.url.split("?");  // separate route from query string
+  let query = qs.parse(url[1]); // convert query string to object
+  let path = url[0].toLowerCase();
+  //const path = req.url.toLowerCase();
 
   switch(path) {
     case '/':
@@ -33,6 +38,26 @@ http.createServer((req,res) => {
         res.end(data.toString());
      });
      break;
+
+    case '/get':
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end(books.get(query.title));
+      break;
+
+    case '/getall':
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end(books.getAll());
+      break;
+
+    case '/delete':
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end(books.delete(query.title));
+      break;
+
+    case '/add':
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end(books.add(query.title, query.author, query.isbn));
+      break;
 
     default:
       res.writeHead(404, {'Content-Type': 'text/plain'});

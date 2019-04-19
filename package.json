@@ -1,6 +1,6 @@
 {
   "name": "itc230",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Initial project for itc230",
   "main": "index.js",
   "scripts": {
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/andylwilson/itc230/issues"
   },
-  "homepage": "https://github.com/andylwilson/itc230#readme"
+  "homepage": "https://github.com/andylwilson/itc230#readme",
+  "directories": {
+    "lib": "lib"
+  }
 }

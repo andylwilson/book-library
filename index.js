@@ -1,6 +1,6 @@
 /*
 Andy Wilson / itc230 / spring 2019
-Assignment 1 - Creating an initial web server and routes
+Assignment 2 - Let's Get Modular
 */
 
 const http = require("http"); 
@@ -31,22 +31,14 @@ http.createServer((req,res) => {
       });
     break;
 
-    case '/test':
-      fs.readFile("test.html", (err, data) => {
-        if (err) return console.error(err);
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.end(data.toString());
-     });
-     break;
-
     case '/get':
       res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.end(books.get(query.title));
+      res.end('Searching for: ' + query.title + '\n' + JSON.stringify(books.get(query.title)));
       break;
 
     case '/getall':
       res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.end(books.getAll());
+      res.end('Here are all of the books: \n\n' + books.getAll());
       break;
 
     case '/delete':
@@ -56,7 +48,7 @@ http.createServer((req,res) => {
 
     case '/add':
       res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.end(books.add(query.title, query.author, query.isbn));
+      res.end(query.title + ' added! Books now contains: \n\n' + books.add(query.title, query.author, query.isbn));
       break;
 
     default:

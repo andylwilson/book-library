@@ -7,7 +7,17 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>This is my home page</h1>
-    <p>Further details to come!</p>
+    <h1>Welcome to the library!</h1>
+    <form action="/get" method="POST">
+        <input type="text" name="title" placeholder="What book would you like to find?" size="35">
+        <button type="submit">Search</button>
+    </form>
+
+
+    <!-- still testing for extra credit
+    {{#each library}}
+            <li>Title: {{ library }}</li>
+    {{/each}} -->
+
 </body>
 </html>

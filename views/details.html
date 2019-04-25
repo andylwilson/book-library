@@ -2,8 +2,25 @@
     <body>
         <h1> Here are the details for your search!</h1>
         <p>You searched for: {{title}}</p>
-        <p>Our library contained the following info: </br> {{result}}</p>
+        
+        {{#if result}}
+        <p>Here are the details we have for your request:</p>
+        </br>
+            <li>Title: {{ result.title }}</li>
+            <li>Author: {{ result.author }}</li>
+            <li>ISBN: {{ result.isbn }}</li>
+        </br>
+        <p>Would you like to <a href="/delete?title={{title}}">delete</a> this book?</p>
 
+        {{else}}
+            <p>We don't have this title!</p>
+        {{/if}}
+        </br>
+        <p>Return <a href="/">home</a>?</p>
+
+        
+
+        <!-- testing code for getAll and add 
         <h1>The Library</h1>
         <p>The library currently consists of: </br> {{allbooks}}</p>
 
@@ -11,8 +28,18 @@
         <p>You added {{title}}</p>
         <p>The library now consists of:</br>{{newlibrary}}</p>
 
-        <h1>Delete a book</h1>
-        <p>You requested to delete {{title}}</p>
-        <p>{{title}} was {{deleted}}</p>
+        <form action="/add" method="GET">
+                <label for="title">Title:</label>
+                <input type="text" name="title" required="required"/>
+                </br></br>
+                <label for="author">Author:</label>
+                <input type="text" name="author" required="required"/>
+                </br></br>
+                <label for="isbn">ISBN:</label>
+                <input type="text" name="isbn" required="required"/>
+                </br></br>
+                <button type="submit">Add Book</button>
+        </form> -->
+
     </body>
 </html>

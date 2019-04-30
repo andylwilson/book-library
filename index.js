@@ -19,8 +19,7 @@ app.use(bodyParser.urlencoded({extended: true})); // parse form submissions
 
  // send content of 'home' view
 app.get('/', (req,res) => {
- // let library = books.getAll();
-  res.render('home');
+  res.render('home', {library: books.getAll()});
  });
 
  app.get('/about', (req, res) => {

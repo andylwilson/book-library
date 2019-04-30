@@ -4,7 +4,7 @@
   "description": "Initial project for itc230",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/books_testing.js"
   },
   "repository": {
     "type": "git",

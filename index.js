@@ -43,9 +43,16 @@ app.get('/getall', (req,res) => {
  });
 
 app.get('/add', (req,res) => {
-  let result = books.add(req.query.title, req.query.author, req.query.isbn);
-  res.render('details', {title: req.query.title, newlibrary: result});
+  let newBook = {title: "Calypso", author: "David Sedaris", isbn:"003163"};
+  let result = books.add(newBook);
+  res.render('details', {newlibrary: JSON.stringify(result)});
  });
+
+// add method using query string
+//  app.get('/add', (req,res) => {
+//   let result = books.add(req.query.title, req.query.author, req.query.isbn);
+//   res.render('details', {title: req.query.title, newlibrary: result});
+//  });
 
 app.get('/delete', (req,res) => {
   let result = books.delete(req.query.title);

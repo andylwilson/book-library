@@ -15,24 +15,26 @@ describe("Books Get Method", () => {
 
    describe("Books Delete Method", () => {
     it("deletes requested book", () => {
+      const size = books.length;
       const result = books.delete("watchmen");
-      expect(result).to.deep.equal({title: "watchmen", author:"alan moore", isbn:0930289234});
+      expect(size).to.equal(books.length);
     });
     
     it("fails w/ invalid book", () => {
       const result = books.delete("fake");
-      expect(result).to.be.undefined;
+      expect(result).to.equal(-1);
     });
    });
 
    describe("Books Add Method", () => {
     it("adds requested book", () => {
-      const result = books.add("Fahrenheit 451", "Ray Bradbury", 0307347);
-      expect(result.title).to.equal("watchmen");
+      books.add({title: "Calypso", author: "David Sedaris", isbn:0812367918});
+      let result = books.get("calypso");
+      expect(result).to.deep.equal({title: "Calypso", author: "David Sedaris", isbn:0812367918});
     });
     
     it("fails w/ invalid book", () => {
-      const result = books.add("fake");
-      expect(result).to.be.undefined;
+      const result = books.add({ title:'Watchmen', author:'Alan Moore', isbn:0930289234});
+      expect(result).to.equal(undefined);
     });
    });

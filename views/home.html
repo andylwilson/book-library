@@ -20,6 +20,14 @@
     {{/each}}
     </ul>
 
+    <h2>Would you like to add a book?</h2>
+    <form action="/add" method="POST">
+        <input type="text" name="addTitle" placeholder="Enter a title" size="35"></br>
+        <input type="text" name="addAuthor" placeholder="Enter an author" size="35"></br>
+        <input type="text" name="addISBN" placeholder="Enter the ISBN" size="35"></br>
+        <button type="submit">Add Book</button>
+    </form>
+
 
 </body>
 </html>

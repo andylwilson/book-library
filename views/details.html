@@ -1,16 +1,16 @@
 <html>
     <body>
         <h1> Here are the details for your search!</h1>
-        <p>You searched for: {{title}}</p>
+        <p>You searched for: {{book.title}}</p>
         
-        {{#if result}}
+        {{#if book}}
         <p>Here are the details we have for your request:</p>
         </br>
-            <li>Title: {{ result.title }}</li>
-            <li>Author: {{ result.author }}</li>
-            <li>ISBN: {{ result.isbn }}</li>
+            <li>Title: {{ book.title }}</li>
+            <li>Author: {{ book.author }}</li>
+            <li>ISBN: {{ book.isbn }}</li>
         </br>
-        <p>Would you like to <a href="/delete?title={{title}}">delete</a> this book?</p>
+        <p>Would you like to <a href="/delete?title={{book.title}}">delete</a> this book?</p>
 
         {{else}}
             <p>We don't have this title!</p>
@@ -18,30 +18,7 @@
         </br>
         <p>Return <a href="/">home</a>?</p>
 
-        <p>Added to library: </br> {{newlibrary}}</p>
-
-        
-
-        <!-- testing code for getAll and add 
-        <h1>The Library</h1>
-        <p>The library currently consists of: </br> {{allbooks}}</p>
-
-        <h1>Adding to the Library</h1>
-        <p>You added {{title}}</p>
-        <p>The library now consists of:</br>{{newlibrary}}</p>
-
-        <form action="/add" method="GET">
-                <label for="title">Title:</label>
-                <input type="text" name="title" required="required"/>
-                </br></br>
-                <label for="author">Author:</label>
-                <input type="text" name="author" required="required"/>
-                </br></br>
-                <label for="isbn">ISBN:</label>
-                <input type="text" name="isbn" required="required"/>
-                </br></br>
-                <button type="submit">Add Book</button>
-        </form> -->
+        <!-- <p>Added to library: </br> {{newlibrary}}</p> -->
 
     </body>
 </html>

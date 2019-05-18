@@ -1,4 +1,4 @@
 node_modules/
 node_practice
 .DS_Store
-config/
+config/db_config.js

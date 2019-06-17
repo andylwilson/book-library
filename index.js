@@ -1,6 +1,6 @@
 /*
 Andy Wilson / itc230 / spring 2019
-Assignment 6 - REST APIs
+Assignment 7 - Converting to SPA
 */
 
 'use strict'

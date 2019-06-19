@@ -24,7 +24,7 @@ app.use('/api', require('cors')()); // set Access-Control-Allow-Origin header fo
 // home
 app.get('/', (req, res, next) => {
   bookMethods.getAll().then((items) => {
-    res.render('home', {library: items }); 
+    res.render('home', {library: JSON.stringify(items)}); 
   }).catch((err) =>{
     return next(err);
   });

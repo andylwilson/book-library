@@ -17,15 +17,19 @@
       display: -webkit-flex;
       display: flex;
       width: 600px;
-      background-color: lightgrey;
+      background-color:lightblue;
   }
   #item-list {
-      background-color: mintcream;
+      background-color:lightgray;
       width: 30%;
       padding: 0px 10px 0px 0px;
   }
+
+  #item-list.ul {
+    color:black;
+  }
   #item-details {
-      background-color: #f0e3dc;
+      background-color: lightblue;
       width: 75%;
       padding: 10px;
   }
@@ -171,7 +175,7 @@ class BookApp extends React.Component {
       // generate array of item nodes
       const itemNodes = items.map((item) => {
         if (!filter || item.name.toLowerCase().includes(filter)) { 
-          return <li id={item._id} key={item._id} onClick={show}>{item.name}</li>
+          return <li id={item._id} key={item._id} onClick={show}>{item.title}</li>
         }
       });
       return <span id="item-list"><ul>{itemNodes}</ul></span>;
